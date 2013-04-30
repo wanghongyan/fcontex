@@ -1,0 +1,63 @@
+默认主题开启代码语法高亮
+默认主题列表页面允许没有导读
+为默认主题增加了分享功能
+文件上传层选项卡样式错误修正
+网站主题与控制台皮肤位置互换
+
+
+===================
+2012/04 1.0 alpha 2
+
+完善皮肤切换、完成主题切换功能。
+
+
+=================
+2013/03 1.0 alpha
+
+备注：
+1、编辑数据库结构使用Navicat for SQLite 10.1.7及以上版本。
+2、压缩数据库体积使用SQLite Administrator 0.8.3.2及以上版本。
+3、根目录下的_sqlite.sql文件是用Navicat for SQLite导出后删除全部的DROP TABLE行，再删除多余的INSERT INTO行后得到的。
+
+
+表fc_content更新:
+1、字段更名
+ct_checkhtml => ct_seo                      页面SEO开头
+ct_sitetitle => ct_pagetitle                页面标题
+ct_sitekeywords => ct_keywords              关键词
+ct_sitedescription => ct_description        页面描述
+ct_cagegory => ct_cid                       分类ID
+ct_addtime => ct_inserttime                 跟ct_updatetime对齐
+ct_status => ct_check                       发布状态
+ct_top => ct_fixed                          置顶
+ct_thumb => ct_cover                        封面
+2、字段删除
+ct_count
+ct_html
+3、字段增加
+ct_username                                 用户名
+ct_category                                 分类名称
+ct_talks                                    评论数量
+ct_tags                                     标签
+
+---
+
+表fc_attached更新：
+字段删除：
+at_sqlkey
+at_sort
+
+---
+
+删除->tableName()函数，以T[table]标签代替。
+变更标签处理方式，反向ID引用改为直接引用。
+更新上传层和上传回调机制。
+在路由类中增加页面缓存功能。
+增加缓存管理功能。
+重构cls.database类。
+删除cls.sethtml.php类文件。
+清理翻页类，只保留了两个必须的翻页样式。
+删除lib.system.content.js文件。
+完成评论及评论管理。
+保持KindEditor代码原封不动，新增的插件代码分离出来，不添加到KindEditor代码里。
+其它大面积更新。

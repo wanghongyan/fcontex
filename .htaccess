@@ -1,0 +1,12 @@
+#默认文档
+DirectoryIndex index.html index.php
+
+#错误页面
+ErrorDocument 404 /m-content/404.html
+
+#目录浏览
+Options -Indexes
+
+#路由映射
+RewriteEngine On
+RewriteRule ^(m[-][^\?]+)$ ?$1 [L]

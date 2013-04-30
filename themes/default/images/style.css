@@ -1,0 +1,166 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, ul, li, h1, h2, h3, h4, h5, h6, table, td, th, tr, ol, dt, dl, dd, a, p, div, img, span, input{margin:0; padding:0; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#666;}
+
+a{color:#303E48;}
+a:hover{color:#FF8080;}
+img{border:none;}
+ul, li{list-style:none;}
+.clear{clear:both; height:1px; overflow:hidden;}
+
+body, body.day{background:#fff url(pattern.day.jpg) repeat-y; background-attachment:fixed; height:100%;}
+body.night{background:#000 url(pattern.night.jpg) no-repeat;}
+
+.top_bg{width:1030px; margin:30px auto 0 auto; background:url(body.bg.top.png); height:15px;}
+.container{width:1030px; margin:0 auto; background:url(body.bg.png) repeat-y; padding-top:30px;}
+
+code{display:block; line-height:1.6em; background:#f1f1f1; padding:6px 12px;}
+
+/* 头部 */
+.header{width:940px; height:80px; margin:0 auto; background:url(delimiter.bg.x.png) repeat-x bottom; }
+.header .logo{float:left;}
+.header .logo a{font-size:32px; color:#338AC7; font-weight:bold; text-decoration:none; font-variant:small-caps; display:block; width:220px; height:50px; background:url(logo.png) no-repeat;}
+.header .logo a strong {display:none;}
+.header .nav{float:right; text-align:right; margin:16px 30px 0 0; width:420px;}
+.header .nav a{font-size:16px; font-weight:bold; text-decoration:none; vertical-align:top; color:#666;}
+.header .nav a:hover{color:#338AC7;}
+.header .nav span{display:inline-block; height:18px; margin:0 20px; border-right:1px dotted #ccc;}
+	
+.header .search{ float:right; margin-top:10px;}
+.header .search .text{ width:160px; height:26px; line-height:26px; border:1px solid #E5E5E5; border-right:none; border-radius:4px 0 0 4px; float:left; padding:2px 5px; color:#999999;}
+.header .search p{float:left; background:url(button.bg.png) left -128px;}
+.header .search .button{background:url(button.bg.png) right -160px; font-size:1.2em; height:32px; border:none; padding:0 10px; color:#FFF; text-shadow:0 -1px 0 #32719D; cursor:pointer;}
+
+/* 内容 */
+.center{width:940px; margin:30px auto 0 auto;}
+.center .left{width:650px; overflow:hidden; float:left; background:url(delimiter.bg.y.png) repeat-y right top;}
+.center .left img{max-width:600px;}
+.center .left .delimiter{background: url(delimiter.bg.x.png) repeat-x; height: 2px; margin:30px 0; width: 100%; width:620px;}
+.center .left .list h1{display:block; margin-bottom:20px;}
+.center .left .list h1, .center .left .list h1 a{font-size:16px; text-decoration:none; font-weight:normal;}
+.center .left .list .simplemodal-love{position:absolute; margin-left:-100px; background:url(love.png);}
+.center .left .list .simplemodal-love, .center .left .list .simplemodal-love a{display:block; width:48px; height:42px; font-size:14px; color:#fff; text-align:center; line-height:36px; text-decoration:none;}
+.center .left .list ul{display:block; height:40px;}
+.center .left .list ul li{float:left; display:block; color:#76797C; background: url(delimiter.bg.meta.png) no-repeat scroll left center transparent; height: 16px; margin: 0 0 0 10px; padding: 0 0 0 10px; width: auto;}
+.center .left .list ul li a{color: #76797C; text-decoration:none; display: block; float: none; height: 16px; line-height: 18px; padding-left: 20px;}
+.center .left .list ul li a:hover{color:#FF8080;}
+.center .left .list ul li.author{background: url(meta.sprite.png) no-repeat 0 -64px; margin:0; padding:0 0 0 20px;}
+.center .left .list ul li.time{background: url(meta.sprite.png) no-repeat 0 -80px; padding-left:20px;}
+.center .left .list ul li.comments a{background: url(meta.sprite.png) no-repeat 0 0;}
+.center .left .list ul li .b_tag{background: url(meta.sprite.png) no-repeat scroll 0 -32px transparent; display:block; float:left; height:16px; padding-left:20px;}
+.center .left .list ul li.litag a{display:inline-block; padding:0;}
+
+.center .left .list_img{background:#EDEDED; width:620px; border-radius:6px; overflow:hidden; position:relative; margin-bottom:10px;}
+.center .left .list_img img{padding:10px;}
+.center .left .list_img a{position:absolute; border-radius:6px; left:0; top:0; height:100%; width:100%; background:#000; opacity:0; filter:alpha(opacity=0);}
+
+.center .left .list_skim{line-height:1.8em; width:620px;}
+.center .left .list_content{line-height:1.8em; width:620px; overflow:hidden; padding-top:10px;}
+
+.center .left .listTitle{font-size:18px; color:#999; font-weight:normal; padding:0 0 30px 0 ;}
+.center .left .listTitle a{color:#999;}
+
+.center .left .noLog{font-size:16px; font-style:normal;}
+
+.center .right{width:290px; overflow:hidden; float:left; background:url(delimiter.bg.y.png) repeat-y left top; margin-left:-1px;}
+.center .right a{text-decoration:none;}
+.center .right h2{display:block; padding-bottom:15px; margin-bottom:8px; font-size:14px; color:#338AC7; background:url(delimiter.bg.x.png) left bottom repeat-x;}
+		
+.widget{width:250px; margin:0 auto 20px auto;}
+
+/* 位置 */
+.position { background:url(delimiter.bg.x.png) repeat-x bottom; margin:0 auto; padding:12px 0; }
+.position a { text-decoration:none; background:url(breadcrumbs.arrow.gif) no-repeat right; padding-right:12px; margin-right:2px; }
+
+/* 侧栏 */
+.center .right .category{}
+.center .right .category li{display:block; padding-bottom:15px; margin-bottom:15px; background:url(delimiter.bg.x.png) left bottom repeat-x; text-indent:1em;}
+.center .right .category li.P{text-indent:0;}
+.center .right .category li a{display:block; text-decoration:none; font-size:14px; padding-left:10px;}
+
+.center .right .tags p{background:url(tags.bg.png) no-repeat left 0 transparent; cursor:pointer; float:left; height:23px; margin:8px 30px 8px 0; padding:0; position:relative; width:auto; word-break:keep-all;}
+.center .right .tags p a{background:url(tags.bg.png) no-repeat right -23px transparent; border:medium none; color:#3F4950; cursor:pointer; float:left; height:100%; line-height:23px; margin:0 -15px 0 0; padding:0 15px; text-indent:5px; text-shadow:0 1px 0 #FFFFFF; width:auto;}
+.center .right .tags p:hover {background-position:left -46px;}
+.center .right .tags p a:hover {background-position:right -69px; text-decoration:none;}
+
+/* 分享工具条 */
+.share {margin-top:20px; width:600px; height:18px; padding:10px; background:#eee;}
+
+/* 翻页条 */
+.turnner { width:auto; color:#666; float:right; height:26px; margin-right:28px; }
+.turnner a, .turnner span { float:left; display:block; width:auto; padding:3px 8px; color:#2B6893; border:1px solid #ccc; margin:0 2px; line-height:16px; border-radius:2px;}
+.turnner a:link, .turnner a:visited { text-decoration:none; }
+.turnner a:hover, .turnner a.c { color:#333; border:1px solid #999; background:#ccc; }
+.turnner cite { padding:0 1px 0 0; font-style:italic; font-size:10px; line-height:10px; }
+
+/* 底部 */
+.footer{width:1000px; margin:30px auto 0 auto; background:url(pattern.dots.png) #414B52; height:400px;}
+
+.copyright{font-variant:small-caps; height:40px; line-height:40px; background:url(black.png) #343A3F; width:1000px; margin:30px auto 0 auto;}
+.copyright p{display:block; width:960px; margin:0 auto; color:#eee;}
+.copyright p strong{float:right; color:#eee; font-weight:normal;}
+.copyright p a{color:#eee; text-decoration:none;}
+.copyright p a:hover{color:#B5BBBF;}
+
+#topcontrol a{display:block; width:51px; height:51px; background:url(ui.totop.png);}
+#topcontrol a:hover{background-position:0 -51px;}
+
+/* 评论列表 */
+.comment_list{width:620px; margin:0;}
+.comment_list h1{ display:block; margin:20px 0; font-size:20px; clear:both;}
+.comment_list .comment_list_1, .comment_list .comment_list_2{ position:relative; margin-top:-1px; padding-bottom:20px; border:1px solid #eee; }
+.comment_list .comment_list_2{ width:520px; margin:0 auto 10px auto; padding-bottom:10px;}
+.comment_list .comment_list_face{display:block; position:absolute; right:10px; top:10px; width:40px; height:40px; padding:2px; border:1px solid #CCC;}
+.comment_list .comment_list_face img{width:40px; height:40px;}
+.comment_list .comment_list_name{display:block; padding:15px 0 0 20px;}
+.comment_list .comment_list_name a{color:#338AC7; text-decoration:none;}
+.comment_list .comment_list_name a:hover{text-decoration:underline;}
+.comment_list .comment_list_time{display:block; padding:10px 0 0 20px; color:#999;}
+.comment_list .comment_list_content{padding:20px 50px 15px 20px; line-height:1.6em;}
+.comment_list .comment_list_button{padding:0 0 10px 20px;}
+.comment_list .comment_list_button input{background:#398DFD; border:1px solid #398DFD; line-height:25px; height:25px; padding:0 5px; color:#fff; cursor:pointer;}
+.comment_list .turnner {margin:16px 0 0 0;}
+
+/* 发表评论 */
+.comment_list form {padding:0 20px;}
+.comment_list table{border-collapse:collapse; width:100%;}
+.comment_list table td{padding:10px 0; text-align:left;}
+.comment_list table td input, .comment_list table td textarea {
+padding: 9px;
+border: solid 1px #E5E5E5;
+outline: 0;
+font: normal 13px/100% Verdana, Tahoma, sans-serif;
+width: 220px;
+background: #FFFFFF;
+background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+.comment_list table td input:hover, .comment_list table td textarea:hover,  
+.comment_list table td input:focus, .comment_list table td textarea:focus {  
+border-color: #C9C9C9;
+-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+.comment_list table td.submit input {
+cursor:pointer;
+width: auto;
+padding: 3px 10px;
+background: #617798;
+border: 0;
+font-size: 14px;
+color: #FFFFFF;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+}  
+.comment_list table td label {margin-left: 10px; color: #999999;}
+.comment_list table td textarea{width:340px; height:80px;}
+.comment_list table td #comment_info{margin-left:20px; color:#f00;}
+.comment_list table td .comm_err{padding:3px 0 3px 20px; background:url(icon.err.gif) no-repeat;}
+.comment_list table td .comm_yes{padding:3px 0 3px 20px; background:url(icon.yes.gif) no-repeat;}
+.comment_list table td #cancel{ background:#999; margin-left:6px; display:none;}
+
+/* 附件 */
+.fcattached {background:url(fcattached.gif) no-repeat left center; padding-left:20px; font-size:14px; text-decoration:none; border-bottom:1px dotted #aaa;}

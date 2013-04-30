@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fcontex _ 基于PHP|SQLite|MySQL的全模块化架构BLOG|CMS程序降临！！ _ fcontex</title>
+<meta name="generator" content="fcontex 1.0 alpha 3" />
+<meta name="viewport" content="width=1136" />
+<meta name="description" content="查看fcontex相关日志。全模块化架构BLOG/CMS程序，全AJAX体验 - fcontex新版降临！" />
+<meta name="keywords" content="fcontex,fcontex,FreeContex,EasyIDE,CMS,PHP,MYSQL,SQLITE,PHP CMS,PHP+MYSQL,PHP+SQLITE" />
+<link rel="stylesheet" type="text/css" href="http://www.fcontex.dev:8080/themes/blue/images/style.css" />
+<link rel="stylesheet" type="text/css" href="http://www.fcontex.dev:8080/kernel/tools/kindeditor/plugins/code/prettify.css" />
+<script type="text/javascript" src="http://www.fcontex.dev:8080/themes/blue/images/jquery.js"></script>
+<script type="text/javascript" src="http://www.fcontex.dev:8080/themes/blue/images/scrolltop.js"></script>
+<script type="text/javascript" src="http://www.fcontex.dev:8080/kernel/tools/kindeditor/plugins/code/prettify.js"></script>
+</head><script type="text/javascript">
+$(function()
+{
+	scrolltotop.init();
+	
+	$('.list_img a').hover(function()
+	{
+		$(this).animate({'opacity':'0.1'}, 300);
+	}
+	,function()
+	{
+		$(this).stop(true,false).animate({'opacity':'0'}, 300);
+	});
+})
+</script>
+</head>
+<body>
+	<div class="container">
+		<!--头部开始-->
+<div id="header">
+	<div class="logo">
+		<img src="http://www.fcontex.dev:8080/themes/blue/images/logo.png" alt="fcontex" title="fcontex" />
+	</div>
+	<ul class="nav">
+			<li><a href="/" target="">首页</a></li>
+			<li><a href="?content/page-111.html" target="">下载</a></li>
+			<li><a href="?content/page-113.html" target="">文档</a></li>
+			<li><a href="?message/gbook.html" target="">交流</a></li>
+			<li><a href="?content/page-112.html" target="">关于</a></li>
+		</ul>
+</div>
+<!--头部结束-->		<div id="content">
+			<section id="content-main">
+							<article>
+					<div class="title">
+						<h2><a href="http://www.fcontex.dev:8080/?content/read-114.html">新版清爽来袭！基于PHP|SQLite|MySQL的全新fcontex降临！！</a></h2>
+						<div class="sprite">
+							<strong>
+								alan							</strong>
+							发表于
+							<span>
+								2013-04-05							</span>
+							分类
+							<span>
+								互联网
+							</span> |
+							评论：
+							<span>
+								<a href="http://www.fcontex.dev:8080/?content/read-114.html#comment_box">2</a>
+							</span>
+														| Tags:
+							<span>
+															<a href="http://www.fcontex.dev:8080/?content/tag/CMS">CMS</a>&nbsp;
+															<a href="http://www.fcontex.dev:8080/?content/tag/Blog">Blog</a>&nbsp;
+															<a href="http://www.fcontex.dev:8080/?content/tag/fcontex">fcontex</a>&nbsp;
+															<a href="http://www.fcontex.dev:8080/?content/tag/php">php</a>&nbsp;
+															<a href="http://www.fcontex.dev:8080/?content/tag/SQLite">SQLite</a>&nbsp;
+															<a href="http://www.fcontex.dev:8080/?content/tag/MySQL">MySQL</a>&nbsp;
+														</span>
+													</div>
+					</div>
+					<div class="content">
+											<p><a href="http://www.fcontex.dev:8080/?content/read-114.html"><img src="http://www.fcontex.dev:8080/store/upload/content/201304/04/133161365073178.gif" width="620" /></a></p>
+											<p>好久没更新了啊有木有！世界末日都过了还没更新啊有木有！！都等了几个世纪了有木有！！花儿都谢光了啊有木有！！！的确，连PJBlog4都发布了我们还有什么理由不更新！！</p>
+						<p class="readMore"><a href="http://www.fcontex.dev:8080/?content/read-114.html">阅读全文>>></a></p>
+					</div>
+				</article>
+							<article>
+					<div class="title">
+						<h2><a href="http://www.fcontex.dev:8080/?content/read-110.html">新域名fcontex.com开始启用！</a></h2>
+						<div class="sprite">
+							<strong>
+								alan							</strong>
+							发表于
+							<span>
+								2012-08-09							</span>
+							分类
+							<span>
+								互联网
+							</span> |
+							评论：
+							<span>
+								<a href="http://www.fcontex.dev:8080/?content/read-110.html#comment_box">1</a>
+							</span>
+													</div>
+					</div>
+					<div class="content">
+											<p>即日起正式启用更简短的域名：<a href="http://www.fcontex.com/" target="_blank">fcontex.com</a>，同时原域名freecontex.com仍然可以使用。<br /></p>
+						<p class="readMore"><a href="http://www.fcontex.dev:8080/?content/read-110.html">阅读全文>>></a></p>
+					</div>
+				</article>
+						<div class="turnner" id="turnner"><a title="上一页" href="javascript:void(0)">«</a><a title="第1页" class="c">1</a><a title="下一页" href="javascript:void(0)">»</a></div>						</section>
+			<!--侧栏开始-->
+<aside id="content-sidebar">
+	<div class="widget">
+		<dl>
+			<dt>分类</dt>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-1.html" title="嵌入式技术">嵌入式技术</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-2.html" title="互联网技术">互联网技术</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-3.html" title="fcontex">fcontex</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-4.html" title="FreeContex">FreeContex</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-5.html" title="EasyIDE">EasyIDE</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-6.html" title="EasyIDE API">EasyIDE API</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-7.html" title="前沿|评论|观点">前沿|评论|观点</a></dd>
+								</dl>
+	</div>
+	<div class="widget">
+		<dl>
+			<dt>标签</dt>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E8%A7%82%E7%82%B9" title="观点" style="">观点</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" title="编程语言" style="">编程语言</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/freetype" title="freetype" style="">freetype</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/C%2B%2B" title="C++" style="">C++</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/MySQL" title="MySQL" style="">MySQL</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/Blog" title="Blog" style="">Blog</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/CMS" title="CMS" style="">CMS</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/SQLite" title="SQLite" style="">SQLite</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/php" title="php" style="">php</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/fcontex" title="fcontex" style="">fcontex</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E5%8A%A8%E6%80%81" title="动态" style="">动态</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E5%8D%95%E7%89%87%E6%9C%BA" title="单片机" style="">单片机</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F" title="嵌入式" style="">嵌入式</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E4%BD%8D%E5%9B%BE" title="位图" style="">位图</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/GUI" title="GUI" style="">GUI</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E9%A9%B1%E5%8A%A8" title="驱动" style="">驱动</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/EEPROM" title="EEPROM" style="">EEPROM</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/I2C" title="I2C" style="">I2C</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/QT" title="QT" style="">QT</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/VC" title="VC" style="">VC</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/Gcc" title="Gcc" style="">Gcc</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/Linux" title="Linux" style="">Linux</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/Web%E5%BC%80%E5%8F%91" title="Web开发" style="">Web开发</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E6%BA%90%E7%A0%81" title="源码" style="">源码</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E4%B8%8B%E8%BD%BD" title="下载" style="">下载</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/EasyIDE" title="EasyIDE" style="">EasyIDE</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/API" title="API" style="">API</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/Windows" title="Windows" style="">Windows</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/%E6%B8%B8%E6%88%8F" title="游戏" style="">游戏</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/FreeContex" title="FreeContex" style="">FreeContex</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/C" title="C" style="">C</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/tag/jQuery" title="jQuery" style="">jQuery</a></dd>
+					</dl>
+	</div>
+</aside>
+<!--侧栏结束-->		</div>
+		<!--页脚开始-->
+<footer id="footer">
+	<p>
+		<span class="copyright"><a href="http://www.fcontex.com/" target="_blank">Powered By fcontex 1.0 alpha 3</a>&nbsp; &nbsp; ©Copyright 2013</span>
+		<a href="http://www.fcontex.dev:8080/?system" rel="nofollow">Login</a>&nbsp;|&nbsp;
+		<a href="http://www.fcontex.dev:8080/?content/rss" target="_blank">Rss</a>&nbsp;|&nbsp;
+		<a href="/sitemap.xml" target="_blank">Sitemap</a>
+		<span style="display:none"><script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F974f0214d422da6a1861beb920f423e1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+	</p>
+</footer>
+<!--页脚结束-->	</div>
+</body>
+</html>
