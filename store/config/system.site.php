@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 /*自动化配置文件*/
 return array (
-  'site_theme' => 'blue',
+  'site_theme' => 'default',
   'site_url' => 'http://www.jrmoc.com/',
   'site_title' => '基于PHP|SQLite|MySQL的全模块化架构BLOG|CMS程序降临！！ _ fcontex',
   'site_keywords' => 'fcontex,FreeContex,EasyIDE,CMS,PHP,MYSQL,SQLITE,PHP CMS,PHP+MYSQL,PHP+SQLITE',
