@@ -1,0 +1,31 @@
+<dl class="comment">
+	<dt>查看评论</dt>
+	</dl>
+	<div class="turnner" id="turnner"><a title="上一页" href="javascript:void(0)">«</a><a title="下一页" href="#2" onclick="comment.fetch('http://www.fcontex.dev:8080/?message/comment-116-2.html');return false;">»</a></div>	<h1>发表评论</h1>
+    <div id="comment_form_box">
+			<form onSubmit="comment.submit(); return false;" id="form_comment">
+			<input type="hidden" name="cm_control" id="cm_control" value="http://www.fcontex.dev:8080/module/message/control/" />
+			<input type="hidden" name="cm_cid" id="cm_cid" value="0" />
+			<input type="hidden" name="cm_ctitle" id="cm_ctitle" value="" />
+			<input type="hidden" name="cm_toid" id="cm_toid" value="0" />
+			<input type="hidden" name="cm_topid" id="cm_topid" value="0" />
+			<input type="hidden" name="cm_toname" id="cm_toname" value="" />
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td><input type="text" class="text" name="cm_name" id="cm_name" /><label>*称呼</label></td>
+				</tr>
+				<tr>
+					<td><input type="text" class="text" name="cm_email" id="cm_email" /><label>邮箱</label></td>
+				</tr>
+				<tr>
+					<td><input type="text" class="text" name="cm_url" id="cm_url" /><label>网站</label></td>
+				</tr>
+				<tr>
+					<td><textarea class="text" name="cm_content" id="cm_content"></textarea><label>*内容</label></td>
+				</tr>
+				<tr>
+					<td class="submit"><input type="submit" value="提交" /> <input type="button" value="取消" id="cancel" /><label id="comment_info" style="display:none;"></label></td>
+				</tr>
+			</table>
+		</form>
+	    </div>

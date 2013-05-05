@@ -1,0 +1,76 @@
+<dl class="comment">
+	<dt>查看评论</dt>
+		<dd>
+		<div class="comment-avatar">
+			<img src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&r=X" />
+		</div>
+		<div class="comment-details">
+			<span class="comment-name">
+								游客							</span>
+			<p class="comment-content">
+				没动静了。。。。			</p>
+			<span class="comment-datetime">2011-03-20 01:33</span>
+			<a href="javascript:void(0);" class="comment-post-reply" topid="157" toid="157" toname="游客">回复</a>
+		</div>
+		<ol class="comment-reply">
+					<li>
+				<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/daf035fdf26a8e7e15cf4900c9f1299c?s=30&r=X" /></div>
+				<div class="comment-details">
+					<span class="comment-name">
+										<a target="_blank" href="http://www.fcontex.com">alan</a>
+					@游客					</span>
+					<p class="comment-content">
+					谁说没动静了~~					</p>
+					<span class="comment-datetime">2011-03-20 13:40</span>
+					<span><a href="javascript:void(0);" class="comment-post-reply" topid="158" toid="158" toname="alan">回复</a></span>
+				</div>
+			</li>
+				</ol>
+	</dd>
+		<dd>
+		<div class="comment-avatar">
+			<img src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&r=X" />
+		</div>
+		<div class="comment-details">
+			<span class="comment-name">
+								游客							</span>
+			<p class="comment-content">
+				怎么把后台的用户管理，改写成前台页面的用户系统？感觉system和其他模块不太一样			</p>
+			<span class="comment-datetime">2011-03-16 11:02</span>
+			<a href="javascript:void(0);" class="comment-post-reply" topid="153" toid="153" toname="游客">回复</a>
+		</div>
+		<ol class="comment-reply">
+					<li>
+				<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/daf035fdf26a8e7e15cf4900c9f1299c?s=30&r=X" /></div>
+				<div class="comment-details">
+					<span class="comment-name">
+										<a target="_blank" href="http://www.fcontex.com">alan</a>
+					@游客					</span>
+					<p class="comment-content">
+					用户管理由用户模块来控制的，位于user目录下。					</p>
+					<span class="comment-datetime">2011-03-16 13:13</span>
+					<span><a href="javascript:void(0);" class="comment-post-reply" topid="154" toid="154" toname="alan">回复</a></span>
+				</div>
+			</li>
+				</ol>
+	</dd>
+	</dl>
+<div class="turnner" id="turnner"><a title="上一页" href="javascript:void(0)">«</a><a title="第1页" class="c">1</a><a title="下一页" href="javascript:void(0)">»</a></div><h3>发表评论</h3>
+<div id="comment_form_box" class="comment-form">
+	<form onSubmit="comment.submit(); return false;" id="form_comment">
+		<fieldset>
+			<legend>留言信息</legend>
+			<input type="hidden" name="cm_control" id="cm_control" value="http://www.fcontex.dev:8080/module/message/control/" />
+			<input type="hidden" name="cm_cid" id="cm_cid" value="0" />
+			<input type="hidden" name="cm_ctitle" id="cm_ctitle" value="" />
+			<input type="hidden" name="cm_toid" id="cm_toid" value="0" />
+			<input type="hidden" name="cm_topid" id="cm_topid" value="0" />
+			<input type="hidden" name="cm_toname" id="cm_toname" value="" />
+			<label>*称呼<input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></label><br />
+			<label>邮箱<input type="text" class="text" name="cm_email" id="cm_email" placeholder="邮箱" /></label><br />
+			<label>网站<input type="text" class="text" name="cm_url" id="cm_url" placeholder="网站" /></label><br />
+			<label>*内容<textarea class="text" name="cm_content" id="cm_content" placeholder="说点什么吧..."></textarea></label><br />
+			<input type="submit" value="提交" /> <input type="button" value="取消" id="cancel" /><label id="comment_info" style="display:none;"></label>
+		</fieldset>
+	</form>
+    </div>

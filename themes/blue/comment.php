@@ -43,43 +43,44 @@
 	</dd>
 	<?php endforeach; ?>
 </dl>
-	<?php echo $turnner; ?>
-	<h1>发表评论</h1>
-    <div id="comment_form_box">
-	<?php
-	if ($quiet)
-	{
-		echo '当前页面已关闭评论。';
-	}
-	else
-	{
-	?>
-		<form onSubmit="comment.submit(); return false;" id="form_comment">
+<?php echo $turnner; ?>
+<h3>发表评论</h3>
+<div id="comment_form_box" class="comment-form">
+<?php if ($quiet): ?>
+	当前页面已关闭评论。
+<?php else: ?>
+	<form onSubmit="comment.submit(); return false;" id="form_comment">
+		<fieldset>
+			<legend>留言信息</legend>
 			<input type="hidden" name="cm_control" id="cm_control" value="<?php echo $R->controller; ?>" />
 			<input type="hidden" name="cm_cid" id="cm_cid" value="0" />
 			<input type="hidden" name="cm_ctitle" id="cm_ctitle" value="" />
 			<input type="hidden" name="cm_toid" id="cm_toid" value="0" />
 			<input type="hidden" name="cm_topid" id="cm_topid" value="0" />
 			<input type="hidden" name="cm_toname" id="cm_toname" value="" />
-			<table border="0" cellpadding="0" cellspacing="0">
+			<table cellpadding="0" cellspacing="0" border="0">
 				<tr>
-					<td><input type="text" class="text" name="cm_name" id="cm_name" /><label>*称呼</label></td>
+					<td width="50">*称呼</td>
+					<td><input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></td>
 				</tr>
 				<tr>
-					<td><input type="text" class="text" name="cm_email" id="cm_email" /><label>邮箱</label></td>
+					<td>&nbsp;邮箱</td>
+					<td><input type="text" class="text" name="cm_email" id="cm_email" placeholder="邮箱" /></td>
 				</tr>
 				<tr>
-					<td><input type="text" class="text" name="cm_url" id="cm_url" /><label>网站</label></td>
+					<td>&nbsp;网站</td>
+					<td><input type="text" class="text" name="cm_url" id="cm_url" placeholder="网站" /></td>
 				</tr>
 				<tr>
-					<td><textarea class="text" name="cm_content" id="cm_content"></textarea><label>*内容</label></td>
+					<td valign="top">*内容</td>
+					<td><textarea class="text" name="cm_content" id="cm_content" placeholder="说点什么吧..."></textarea></td>
 				</tr>
 				<tr>
-					<td class="submit"><input type="submit" value="提交" /> <input type="button" value="取消" id="cancel" /><label id="comment_info" style="display:none;"></label></td>
+					<td></td>
+					<td><button type="submit" value="提交">提交</button> <button type="button" id="cancel">取消</button><label id="comment_info" style="display:none;"></label></td>
 				</tr>
 			</table>
-		</form>
-	<?php
-	}
-	?>
+		</fieldset>
+	</form>
+<?php endif; ?>
     </div>

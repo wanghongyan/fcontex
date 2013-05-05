@@ -207,3 +207,14 @@ a:hover { text-decoration:underline; }
 /*= 细节处理
 --------------------------------------------------*/
 .fcattached { background:url(fcattached.gif) left center no-repeat; padding-left:20px; }
+/*= 评论表单样式
+--------------------------------------------------*/
+.comment-form {}
+.comment-form legend { display:none; }
+.comment-form label { display:none; }
+.comment-form table tr td { padding-top:10px; }
+.comment-form input[type="text"], .comment-form textarea { font-size:14px; width:200px; border:1px solid #ccc; border-radius:3px; padding:6px; background:url(bg_sprites.png) 0 -90px repeat-x #fff; color:#ccc; }
+.comment-form textarea { width:340px; height:80px; }
+.comment-form input:focus, .comment-form textarea:focus { color:#333; }
+.comment-form button { border-color:#CCCCCC #CCCCCC #BBBBBB; border-width:1px; boder-style:solid; border-radius:3px; box-shadow:0 0 1px #FFFFFF inset; height:30px; transition:all 0.15s linear 0s; width:100px; background-color:#E6E6E6; background:linear-gradient(#FCFCFC, #FCFCFC 25%, #E6E6E6) no-repeat #e6e6e6; cursor:pointer; font-size:14px; text-shadow:0 1px 0 #fff; font-weight:bold; color:#555; }
+.comment-form button:hover { background-position:0 -15px; color:#333; }
