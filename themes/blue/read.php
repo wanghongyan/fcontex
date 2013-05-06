@@ -14,7 +14,7 @@ var comment =
 			$('#comment_box').html(data);
 			$('#cm_cid').val('<?php echo $page['ct_id']; ?>');
 			$('#cm_ctitle').val('<?php echo $page['ct_title']; ?>');
-			$('.comment_list_button input').click(function()
+			$('#comment_box .comment-post-reply').click(function()
 			{
 				$('#comment_info').removeClass().html('');
 				var form = $('#form_comment').clone(true);

@@ -45,11 +45,11 @@
 </dl>
 <?php echo $turnner; ?>
 <h3>发表评论</h3>
-<div id="comment_form_box" class="comment-form">
+<div id="comment_form_box">
 <?php if ($quiet): ?>
 	当前页面已关闭评论。
 <?php else: ?>
-	<form onSubmit="comment.submit(); return false;" id="form_comment">
+	<form onSubmit="comment.submit(); return false;" id="form_comment" class="comment-form">
 		<fieldset>
 			<legend>留言信息</legend>
 			<input type="hidden" name="cm_control" id="cm_control" value="<?php echo $R->controller; ?>" />

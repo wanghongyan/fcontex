@@ -14,10 +14,13 @@
 	<div class="widget">
 		<dl>
 			<dt>标签</dt>
+			<dd id="tag_cloud">
 			<?php foreach ($C->getTags() as $tag): ?>
-			<dd><span class="icon">ღ</span><a href="<?php echo $R->getUrl('content/tag/'.urlencode($tag['tg_title']), ''); ?>" title="<?php echo $tag['tg_title']; ?>" style="<?php echo $tag['tg_color'] ? 'color:'.$tag['tg_color'] : ''; ?>"><?php echo $tag['tg_title']; ?></a></dd>
+			<a href="<?php echo $R->getUrl('content/tag/'.urlencode($tag['tg_title']), ''); ?>" title="<?php echo $tag['tg_title']; ?>" style="<?php echo $tag['tg_color'] ? 'color:'.$tag['tg_color'] : ''; ?>"><?php echo $tag['tg_title']; ?></a>
 			<?php endforeach; ?>
+			</dd>
 		</dl>
 	</div>
+	<script src="<?php echo URL_THEME; ?>/images/miaov.js" type="text/javascript"></script>
 </aside>
 <!--侧栏结束-->
