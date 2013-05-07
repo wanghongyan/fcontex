@@ -60,7 +60,7 @@
 			<input type="hidden" name="cm_toname" id="cm_toname" value="" />
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tr>
-					<td width="50">*称呼</td>
+					<td width="60">*称呼</td>
 					<td><input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></td>
 				</tr>
 				<tr>

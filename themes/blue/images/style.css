@@ -185,6 +185,9 @@ a:hover { text-decoration:underline; }
 .comment-reply .comment-name a { color:#DD3322; }
 .comment-reply .comment-avatar { clear:right; }
 .comment-reply .comment-details { padding-left:40px; }
+.comment-form { padding-left:60px; }
+.comment-form-avatar { float:left; }
+.comment-form-avatar img { border-radius:27px; box-shadow:0 0 10px #fff; transition:-moz-transform 0.4s ease-out 0s; }
 /*= 分页信息
 --------------------------------------------------*/
 .turnner { background:#eee; text-align:center; padding:10px; border-radius:5px; width:600px; }

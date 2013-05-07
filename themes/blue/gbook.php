@@ -57,7 +57,7 @@ $(function()
 {
 	scrolltotop.init();
 	
-	$('.comment_list_button input').click(function()
+	$('#comment-list .comment-post-reply').click(function()
 	{
 		$('#comment_info').removeClass().html('');
 		var form = $('#form_comment').clone(true);
@@ -80,123 +80,104 @@ $(function()
 </script>
 </head>
 <body>
-
-    <div class="top_bg"></div>
-    
     <div class="container">
-    
-    	<?php include 'inc.header.php'; ?>
-		
-		<?php
-		if ($position)
-		{
-		?>
-		<div class="center position">
-			<a href="<?php echo URL_SITE; ?>">首页</a>
-			<?php
-			foreach ($position as $pos)
-			{
-				if ($pos['link'])
-				{
-			?>
-			<a href="<?php echo $pos['link']; ?>"><?php echo $pos['text']; ?></a>
-			<?php
-				}
-				else echo $pos['text'];
-			}
-			?>
-		</div>
-        <?php
-		}
-		?>
-        
-        <div class="center">
-        	<div class="left">
-				
-            	<div class="comment_list">
-					
-					<div id="comment_form_box">
-					<?php
-					if ($quiet)
-					{
-						echo '留言功能已关闭。';
-					}
-					else
-					{
-					?>
-						<form onsubmit="gbook(); return false;" id="form_comment">
-						<input type="hidden" name="gb_toid" id="gb_toid" value="0" />
-						<input type="hidden" name="gb_topid" id="gb_topid" value="0" />
-						<input type="hidden" name="gb_toname" id="gb_toname" value="" />
-						<table border="0" cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<td><input type="text" class="text" name="gb_name" id="gb_name" /><label>*称呼</label></td>
-							</tr>
-							<tr>
-								<td><input type="text" class="text" name="gb_email" id="gb_email" /><label>邮箱</label></td>
-							</tr>
-							<tr>
-								<td><input type="text" class="text" name="gb_url" id="gb_url" /><label>网站</label></td>
-							</tr>
-							<tr>
-								<td><textarea class="text" name="gb_content" id="gb_content"></textarea><label>*内容</label></td>
-							</tr>
-							<tr>
-								<td class="submit"><input type="submit" value="提交" /> <input type="button" value="取消" id="cancel" /><label id="comment_info" style="display:none;"></label></td>
-							</tr>
-						</table>
-						</form>
-					<?php
-					}
-					?>
-					</div>
-					
-					<p class="delimiter"></p>
-					
-					<div id="comment_box">
-						<?php
-						foreach ($gbook as $rst)
-						{
-						?>
-						<div class="comment_list_1">
-							<span class="comment_list_face"><img src="http://www.gravatar.com/avatar/<?php echo md5($rst['gb_email']); ?>?s=40&r=X" /></span>
-							<h2 class="comment_list_name"><a target="_blank" href="<?php if ($rst['gb_url']) echo 'http://'.$rst['gb_url']; else echo 'javascript:void(0);'; ?>"><?php echo $rst['gb_name']; ?></a></h2>
-								<span class="comment_list_time"><?php echo date('Y-m-d H:i', $rst['gb_time']); ?></span>
-								<div class="comment_list_content"><?php echo $rst['gb_content']; ?></div>
-								<div class="comment_list_button"><input type="button" value="回复" topid="<?php echo $rst['gb_id']; ?>" toid="<?php echo $rst['gb_id']; ?>" toname="<?php echo $rst['gb_name']; ?>" /></div>
-							<?php
-							foreach ($M->getGbook($rst['gb_id']) as $rst2)
-							{
-							?>
-							<div class="comment_list_2">
-								<span class="comment_list_face"><img src="http://www.gravatar.com/avatar/<?php echo md5($rst2['gb_email']); ?>?s=40&r=X" /></span>
-								<h2 class="comment_list_name"><a target="_blank" href="<?php if ($rst2['gb_url']) echo 'http://'.$rst2['gb_url']; else echo 'javascript:void(0);'; ?>"><?php echo $rst2['gb_name']; ?></a> @<?php echo $rst2['gb_toname']; ?></h2>
-								<span class="comment_list_time"><?php echo date('Y-m-d H:i', $rst2['gb_time']); ?></span>
-								<div class="comment_list_content"><?php echo $rst2['gb_content']; ?></div>
-								<div class="comment_list_button"><input type="button" value="回复" topid="<?php echo $rst['gb_id']; ?>" toid="<?php echo $rst2['gb_id']; ?>" toname="<?php echo $rst2['gb_name']; ?>" /></div>
-							</div>
-							<?php
-							}
-							?>
-						</div>
-						<?php
-						}
-						?>
-						<?php echo $turnner; ?>
-					</div>
-					
+	<?php include 'inc.header.php'; ?>
+		<div id="content">
+			<section id="content-main">
+				<!--发表评论表单开始-->
+				<div id="comment_form_box">
+				<?php if ($quiet): ?>
+					当前页面已关闭评论。
+				<?php else: ?>
+					<div class="comment-form-avatar"><img src="http://www.gravatar.com/avatar/<?php echo md5('234'); ?>?s=40&r=X" /></div>
+					<form onSubmit="comment.submit(); return false;" id="form_comment" class="comment-form">
+						<fieldset>
+							<legend>留言信息</legend>	
+							<input type="hidden" name="cm_control" id="cm_control" value="<?php echo $R->controller; ?>" />
+							<input type="hidden" name="cm_cid" id="cm_cid" value="0" />
+							<input type="hidden" name="cm_ctitle" id="cm_ctitle" value="" />
+							<input type="hidden" name="gb_toid" id="cm_toid" value="0" />
+							<input type="hidden" name="gb_topid" id="cm_topid" value="0" />
+							<input type="hidden" name="gb_toname" id="cm_toname" value="" />
+							<table cellpadding="1" cellspacing="1" border="0">
+								<tr>
+									<td width="212"><input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></td>
+									<td colspan="2">*称呼</td>
+								</tr>
+								<tr>
+									<td><input type="text" class="text" name="cm_email" id="cm_email" placeholder="邮箱" /></td>
+									<td colspan="2">&nbsp;邮箱</td>
+								</tr>
+								<tr>
+									<td><input type="text" class="text" name="cm_url" id="cm_url" placeholder="网站" /></td>
+									<td colspan="2">&nbsp;网站</td>
+								</tr>
+								<tr>
+									<td colspan="2"><textarea class="text" name="cm_content" id="cm_content" placeholder="说点什么吧..."></textarea></td>
+									<td valign="top" colspan="2">*内容</td>
+								</tr>
+								<tr>
+									<td colspan="2"><button type="submit" value="提交">提交</button> <button type="button" id="cancel">取消</button><label id="comment_info" style="display:none;"></label></td>
+									<td></td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+				<?php endif; ?>
 				</div>
-                
-            </div>
-            
-            <?php include 'inc.sider.php'; ?>
-            
-        </div>
-        
-        <div class="clear"></div>
-    	
-        <?php include 'inc.footer.php'; ?>
-    </div>
-    
+				<!--发表评论表单结束-->
+				<!--评论列表开始-->
+				<dl class="comment" id="comment-list">
+					<dt>&nbsp;</dt>
+					<?php foreach ($gbook as $rst):?>
+					<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/<?php echo md5($rst['gb_email']); ?>?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+								<?php if ($rst['gb_url']): ?>
+								<a target="_blank" href="http://<?php echo $rst['gb_url']; ?>"><?php echo $rst['gb_name']; ?></a>
+								<?php else: ?>
+								<?php echo $rst['gb_name']; ?>
+								<?php endif; ?>
+							</span>
+							<p class="comment-content">
+								<?php echo $rst['gb_content']; ?>
+							</p>
+							<span class="comment-datetime"><?php echo date('Y-m-d H:i', $rst['gb_time']); ?></span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="<?php echo $rst['gb_id']; ?>" toid="<?php echo $rst['gb_id']; ?>" toname="<?php echo $rst['gb_name']; ?>">回复</a>
+						</div>
+						<ol class="comment-reply">
+						<?php foreach ($M->getGbook($rst['gb_id']) as $rst2): ?>
+							<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/<?php echo md5($rst2['gb_email']); ?>?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+									<?php if ($rst2['gb_url']): ?>
+									<a target="_blank" href="http://<?php echo $rst2['gb_url']; ?>"><?php echo $rst2['gb_name']; ?></a>
+									<?php else: ?>
+									<?php echo $rst2['gb_name']; ?>
+									<?php endif; ?>@<?php echo $rst2['gb_toname']; ?>
+									</span>
+									<p class="comment-content">
+									<?php echo $rst2['gb_content']; ?>
+									</p>
+									<span class="comment-datetime"><?php echo date('Y-m-d H:i', $rst2['gb_time']); ?></span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="<?php echo $rst2['gb_id']; ?>" toid="<?php echo $rst2['gb_id']; ?>" toname="<?php echo $rst2['gb_name']; ?>">回复</a></span>
+								</div>
+							</li>
+						<?php endforeach; ?>
+						</ol>
+					</dd>
+					<?php endforeach; ?>
+				</dl>
+				<?php echo $turnner; ?>
+				<!--评论列表结束-->
+			</section>
+			<?php include 'inc.sider.php'; ?>
+		</div>
+	<?php include 'inc.footer.php'; ?>
+	</div>
 </body>
 </html>

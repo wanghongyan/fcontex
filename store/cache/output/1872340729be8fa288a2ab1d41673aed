@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>基于PHP|SQLite|MySQL的全模块化架构BLOG|CMS程序降临！！ _ fcontex</title>
+<meta name="generator" content="fcontex 1.0 alpha 3" />
+<meta name="viewport" content="width=1136" />
+<meta name="description" content="全模块化架构BLOG/CMS程序，全AJAX体验 - fcontex新版降临！" />
+<meta name="keywords" content="fcontex,FreeContex,EasyIDE,CMS,PHP,MYSQL,SQLITE,PHP CMS,PHP+MYSQL,PHP+SQLITE" />
+<link rel="stylesheet" type="text/css" href="http://www.fcontex.dev:8080/themes/blue/images/style.css" />
+<script type="text/javascript" src="http://www.fcontex.dev:8080/themes/blue/images/jquery.js"></script>
+<script type="text/javascript" src="http://www.fcontex.dev:8080/themes/blue/images/scrolltop.js"></script>
+<script type="text/javascript">
+function gbook()
+{
+	$('#comment_info').removeClass().html('<img src="http://www.fcontex.dev:8080/themes/blue/images/loading.gif" />').show();
+	$.ajax
+	({
+		type    : 'post',
+		url     : 'http://www.fcontex.dev:8080/module/message/control/?mode=gbook.insert',
+		cache   : false,
+		data    : $('#form_comment').serialize(),
+		success : function(data, textStatus)
+		{
+			var a = data ? data.split('|') : ['无效的服务器响应。'];
+			if (a[0] == 'YES')
+			{
+				$('#comment_info').addClass('comm_yes').html(a[1]);
+				setTimeout(function()
+				{
+					$('#comment_info').removeClass().html('');
+					$('#form_comment').get(0).reset();
+					$('#cancel').click();
+					location.href = location.href;
+				},
+				800);
+			}
+			else if (a[0] == 'ERR')
+			{
+				$('#comment_info').addClass('comm_err').html(a[1]);
+				if (a[2]) $('#'+a[2]).focus();
+			}
+			else
+			{
+				$('#comment_info').html(data);
+			}
+		},
+		error  : function(XMLHttpRequest, textStatus, errorThrown)
+		{
+			$('#comment_info').addClass('comm_err').html('超求超时.');
+		}
+	});	
+}
+
+$(function()
+{
+	scrolltotop.init();
+	
+	$('#comment-list .comment-post-reply').click(function()
+	{
+		$('#comment_info').removeClass().html('');
+		var form = $('#form_comment').clone(true);
+		$('#form_comment').remove();
+		$(this).parent().after(form);
+		$('#gb_topid').val($(this).attr('topid'));
+		$('#gb_toid').val($(this).attr('toid'));
+		$('#gb_toname').val($(this).attr('toname'));
+		$('#cancel').css('display', 'inline').bind('click', function()
+		{
+			$('#comment_info').removeClass().html('');
+			$('#form_comment').remove();
+			$('#comment_form_box').after(form);
+			$('#gb_topid').val('0');
+			$('#gb_toid').val('0');
+			$(this).css('display', 'none');
+		});
+	});
+});
+</script>
+</head>
+<body>
+    <div class="container">
+	<!--头部开始-->
+<div id="header">
+	<div class="logo">
+		<img src="http://www.fcontex.dev:8080/themes/blue/images/logo.png" alt="fcontex" title="fcontex" />
+	</div>
+	<ul class="nav">
+			<li><a href="/" target="">首页</a></li>
+			<li><a href="?content/page-111.html" target="">下载</a></li>
+			<li><a href="?content/page-113.html" target="">文档</a></li>
+			<li><a href="?message/gbook.html" target="">交流</a></li>
+			<li><a href="?content/page-112.html" target="">关于</a></li>
+		</ul>
+</div>
+<!--头部结束-->		<div id="content">
+			<section id="content-main">
+				<!--发表评论表单开始-->
+				<div id="comment_form_box">
+									<div class="comment-form-avatar"><img src="http://www.gravatar.com/avatar/289dff07669d7a23de0ef88d2f7129e7?s=40&r=X" /></div>
+					<form onSubmit="comment.submit(); return false;" id="form_comment" class="comment-form">
+						<fieldset>
+							<legend>留言信息</legend>	
+							<input type="hidden" name="cm_control" id="cm_control" value="http://www.fcontex.dev:8080/module/message/control/" />
+							<input type="hidden" name="cm_cid" id="cm_cid" value="0" />
+							<input type="hidden" name="cm_ctitle" id="cm_ctitle" value="" />
+							<input type="hidden" name="gb_toid" id="cm_toid" value="0" />
+							<input type="hidden" name="gb_topid" id="cm_topid" value="0" />
+							<input type="hidden" name="gb_toname" id="cm_toname" value="" />
+							<table cellpadding="1" cellspacing="1" border="0">
+								<tr>
+									<td width="212"><input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></td>
+									<td colspan="2">*称呼</td>
+								</tr>
+								<tr>
+									<td><input type="text" class="text" name="cm_email" id="cm_email" placeholder="邮箱" /></td>
+									<td colspan="2">&nbsp;邮箱</td>
+								</tr>
+								<tr>
+									<td><input type="text" class="text" name="cm_url" id="cm_url" placeholder="网站" /></td>
+									<td colspan="2">&nbsp;网站</td>
+								</tr>
+								<tr>
+									<td colspan="2"><textarea class="text" name="cm_content" id="cm_content" placeholder="说点什么吧..."></textarea></td>
+									<td valign="top" colspan="2">*内容</td>
+								</tr>
+								<tr>
+									<td colspan="2"><button type="submit" value="提交">提交</button> <button type="button" id="cancel">取消</button><label id="comment_info" style="display:none;"></label></td>
+									<td></td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+								</div>
+				<!--发表评论表单结束-->
+				<!--评论列表开始-->
+				<dl class="comment" id="comment-list">
+					<dt>&nbsp;</dt>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/edb0b3feb56a61ab83f6821448a2e1ef?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																<a target="_blank" href="http://www.baidu.com">雁子</a>
+															</span>
+							<p class="comment-content">
+								老大，你的网站因为请求这个文件，而它找不到了，所以被拖慢了很多。http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js，个人意见哈，你有时间的话看下。							</p>
+							<span class="comment-datetime">2012-11-09 15:46</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="110" toid="110" toname="雁子">回复</a>
+						</div>
+						<ol class="comment-reply">
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/45e8f772b7e869b55f61c7d314a92af8?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																<a target="_blank" href="http://blog.yooi.net">风吹一下</a>
+															</span>
+							<p class="comment-content">
+								什么时候能够发布一下EasyIDE V2.2的更新日志啊							</p>
+							<span class="comment-datetime">2012-05-24 15:22</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="109" toid="109" toname="风吹一下">回复</a>
+						</div>
+						<ol class="comment-reply">
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																游客															</span>
+							<p class="comment-content">
+								下载下来只有俩文件，说是上传到服务器就可以了，但上传了下一步不知道怎么做了							</p>
+							<span class="comment-datetime">2012-05-07 21:50</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="107" toid="107" toname="游客">回复</a>
+						</div>
+						<ol class="comment-reply">
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		游客									@游客									</span>
+									<p class="comment-content">
+									还有一个文件呢，你看过那个文件之后就知道怎么做了。									</p>
+									<span class="comment-datetime">2012-05-09 08:15</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="108" toid="108" toname="游客">回复</a></span>
+								</div>
+							</li>
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/45e8f772b7e869b55f61c7d314a92af8?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																游客															</span>
+							<p class="comment-content">
+								请问你用的是什么编辑器写ASP代码的，代码格式蛮好看的							</p>
+							<span class="comment-datetime">2012-03-09 19:53</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="106" toid="106" toname="游客">回复</a>
+						</div>
+						<ol class="comment-reply">
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/8fecfa34399184666906473af4eaff32?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																游客															</span>
+							<p class="comment-content">
+								希望出个json格式输出的方法							</p>
+							<span class="comment-datetime">2012-02-03 14:03</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="105" toid="105" toname="游客">回复</a>
+						</div>
+						<ol class="comment-reply">
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/2e4eeec22c86d50813ebba9d9efc9500?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																游客															</span>
+							<p class="comment-content">
+								咳咳。。很喜欢。。国庆假期就玩这个算了。。希望博主多些更新。。。不是指程序上，是偶尔上来活动活动。。让我们知道freecontex不会停止进步。。							</p>
+							<span class="comment-datetime">2011-09-29 09:42</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="102" toid="102" toname="游客">回复</a>
+						</div>
+						<ol class="comment-reply">
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		<a target="_blank" href="http://www.fcontex.com">alan</a>
+									@游客									</span>
+									<p class="comment-content">
+									活动活动~									</p>
+									<span class="comment-datetime">2011-10-11 21:17</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="103" toid="103" toname="alan">回复</a></span>
+								</div>
+							</li>
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/2e4eeec22c86d50813ebba9d9efc9500?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		<a target="_blank" href="http://xy19.net/weibo">游客</a>
+									@alan									</span>
+									<p class="comment-content">
+									修正下下载站外链接错误的问题吧。。									</p>
+									<span class="comment-datetime">2011-10-11 21:48</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="104" toid="104" toname="游客">回复</a></span>
+								</div>
+							</li>
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/a68a9146a999e0068b5e18d6444109bc?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																游客															</span>
+							<p class="comment-content">
+								这个asp博客不错，不过博客大家都用wp的了，应用不多，能不能做个企业网站系统？							</p>
+							<span class="comment-datetime">2011-07-31 18:31</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="101" toid="101" toname="游客">回复</a>
+						</div>
+						<ol class="comment-reply">
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/938be0356ff9a4707abc7896a8f0d9e1?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																桐岩															</span>
+							<p class="comment-content">
+								你好，我今天刚刚发现这个系统，下载下来试用后感觉用户体验做的不错，我也很喜欢，但有个问题，按现在的规划，那如果别人输入http://www.freecontex.com/gbook/module.xml那不是就是暴露了数据库路径了吗？并且我看系统中也有一些扩展名为&quot;.inc&quot;的文档，那如果别人直接输入这些文档的URL不是可以直接下载下来吗？我对这个系统还不太熟悉，不知道这些重要不重要，盼回，谢谢！							</p>
+							<span class="comment-datetime">2011-06-06 16:43</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="98" toid="98" toname="桐岩">回复</a>
+						</div>
+						<ol class="comment-reply">
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/ae6834ee34a3c67304ccef15c2d9ca89?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		<a target="_blank" href="http://www.fcontex.com">alan</a>
+									@桐岩									</span>
+									<p class="comment-content">
+									请放心，数据库文件已做过防下载处理，INC文件都不是敏感文件，没有下载意义，感谢支持，请多提建议~									</p>
+									<span class="comment-datetime">2011-06-09 08:50</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="99" toid="99" toname="alan">回复</a></span>
+								</div>
+							</li>
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		桐岩									@alan									</span>
+									<p class="comment-content">
+									嗯，数据库是做过防下载处理了，但个人感觉这个样暴露数据库路径还是不太好，还有&quot;.inc&quot;文件可以下载的问题，不知道是不是可以有更好的方法来处理这两个不算太大的问题的问题呢？									</p>
+									<span class="comment-datetime">2011-06-12 10:46</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="100" toid="100" toname="桐岩">回复</a></span>
+								</div>
+							</li>
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/3d432a85135bb893da38344de3243154?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																游客															</span>
+							<p class="comment-content">
+								发现在删除文件时如果该文件不存在 除了提示出错以外 还会删除掉跟目录下的文件夹 。
+像 album aticle 其他还有自己添加的文件夹 。
+file下的attached也被删了。
+
+恐怖的							</p>
+							<span class="comment-datetime">2011-04-27 13:01</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="96" toid="96" toname="游客">回复</a>
+						</div>
+						<ol class="comment-reply">
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/3d432a85135bb893da38344de3243154?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		游客									@游客									</span>
+									<p class="comment-content">
+									刚才操作时删除的那条记录的fl_path字段是空的，该文件也不存在于硬盘上。
+
+把删除掉的文件夹从备份里拷贝回来，在试了一下，没有再出现误删除了。
+
+对于fl_path字段有内容而文件不存在的记录删除时也正常了。
+
+奇怪了									</p>
+									<span class="comment-datetime">2011-04-27 13:20</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="97" toid="97" toname="游客">回复</a></span>
+								</div>
+							</li>
+												</ol>
+					</dd>
+										<dd>
+						<div class="comment-avatar">
+							<img src="http://www.gravatar.com/avatar/1a4d690387675fce86ba9177a1018227?s=40&r=X" />
+						</div>
+						<div class="comment-details">
+							<span class="comment-name">
+																<a target="_blank" href="http://www.mustar.net">mustar</a>
+															</span>
+							<p class="comment-content">
+								弱弱地说个不合时宜的话题，IE6下，后台标题菜单显示不正常。。。							</p>
+							<span class="comment-datetime">2011-04-10 03:23</span>
+							<a href="javascript:void(0);" class="comment-post-reply" topid="93" toid="93" toname="mustar">回复</a>
+						</div>
+						<ol class="comment-reply">
+													<li>
+								<div class="comment-avatar"><img src="http://www.gravatar.com/avatar/daf035fdf26a8e7e15cf4900c9f1299c?s=30&r=X" /></div>
+								<div class="comment-details">
+									<span class="comment-name">
+																		<a target="_blank" href="http://www.fcontex.com">alan</a>
+									@mustar									</span>
+									<p class="comment-content">
+									不好意思，开发过程中基本上没测试过IE6，我觉得还是让IE6回去休息吧~~									</p>
+									<span class="comment-datetime">2011-04-11 18:06</span>
+									<span><a href="javascript:void(0);" class="comment-post-reply" topid="94" toid="94" toname="alan">回复</a></span>
+								</div>
+							</li>
+												</ol>
+					</dd>
+									</dl>
+				<div class="turnner" id="turnner"><a title="上一页" href="javascript:void(0)">«</a><a title="第1页" class="c">1</a><a title="第2页" href="http://www.fcontex.dev:8080/?message/gbook-2.html">2</a><a title="第3页" href="http://www.fcontex.dev:8080/?message/gbook-3.html">3</a><a title="第4页" href="http://www.fcontex.dev:8080/?message/gbook-4.html">4</a><a title="第5页" href="http://www.fcontex.dev:8080/?message/gbook-5.html">5</a><a title="下一页" href="http://www.fcontex.dev:8080/?message/gbook-2.html">»</a><a title="末页" href="http://www.fcontex.dev:8080/?message/gbook-6.html">..6</a></div>				<!--评论列表结束-->
+			</section>
+			<!--侧栏开始-->
+<aside id="content-sidebar">
+	<div class="widget">
+		<dl>
+			<dt>分类</dt>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-1.html" title="嵌入式技术">嵌入式技术</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-2.html" title="互联网技术">互联网技术</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-3.html" title="fcontex">fcontex</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-4.html" title="FreeContex">FreeContex</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-5.html" title="EasyIDE">EasyIDE</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-6.html" title="EasyIDE API">EasyIDE API</a></dd>
+						<dd><span class="icon">ღ</span><a href="http://www.fcontex.dev:8080/?content/list-7.html" title="前沿|评论|观点">前沿|评论|观点</a></dd>
+								</dl>
+	</div>
+	<div class="widget">
+		<dl>
+			<dt>标签</dt>
+			<dd id="tag_cloud">
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E8%A7%82%E7%82%B9" title="观点" style="">观点</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" title="编程语言" style="">编程语言</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/freetype" title="freetype" style="">freetype</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/C%2B%2B" title="C++" style="">C++</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/MySQL" title="MySQL" style="">MySQL</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/Blog" title="Blog" style="">Blog</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/CMS" title="CMS" style="">CMS</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/SQLite" title="SQLite" style="">SQLite</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/php" title="php" style="">php</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/fcontex" title="fcontex" style="">fcontex</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E5%8A%A8%E6%80%81" title="动态" style="">动态</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E5%8D%95%E7%89%87%E6%9C%BA" title="单片机" style="">单片机</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F" title="嵌入式" style="">嵌入式</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E4%BD%8D%E5%9B%BE" title="位图" style="">位图</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/GUI" title="GUI" style="">GUI</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E9%A9%B1%E5%8A%A8" title="驱动" style="">驱动</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/EEPROM" title="EEPROM" style="">EEPROM</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/I2C" title="I2C" style="">I2C</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/QT" title="QT" style="">QT</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/VC" title="VC" style="">VC</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/Gcc" title="Gcc" style="">Gcc</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/Linux" title="Linux" style="">Linux</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/Web%E5%BC%80%E5%8F%91" title="Web开发" style="">Web开发</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E6%BA%90%E7%A0%81" title="源码" style="">源码</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E4%B8%8B%E8%BD%BD" title="下载" style="">下载</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/EasyIDE" title="EasyIDE" style="">EasyIDE</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/API" title="API" style="">API</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/Windows" title="Windows" style="">Windows</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/%E6%B8%B8%E6%88%8F" title="游戏" style="">游戏</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/FreeContex" title="FreeContex" style="">FreeContex</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/C" title="C" style="">C</a>
+						<a href="http://www.fcontex.dev:8080/?content/tag/jQuery" title="jQuery" style="">jQuery</a>
+						</dd>
+		</dl>
+	</div>
+	<script src="http://www.fcontex.dev:8080/themes/blue//images/miaov.js" type="text/javascript"></script>
+</aside>
+<!--侧栏结束-->		</div>
+	<!--页脚开始-->
+<footer id="footer">
+	<p>
+		<span class="copyright"><a href="http://www.fcontex.com/" target="_blank">Powered By fcontex 1.0 alpha 3</a>&nbsp; &nbsp; ©Copyright 2013</span>
+		<a href="http://www.fcontex.dev:8080/?system" rel="nofollow">Login</a>&nbsp;|&nbsp;
+		<a href="http://www.fcontex.dev:8080/?content/rss" target="_blank">Rss</a>&nbsp;|&nbsp;
+		<a href="/sitemap.xml" target="_blank">Sitemap</a>
+		<span style="display:none"><script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F974f0214d422da6a1861beb920f423e1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+	</p>
+</footer>
+<!--页脚结束-->	</div>
+</body>
+</html>
