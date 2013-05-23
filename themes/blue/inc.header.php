@@ -1,7 +1,7 @@
 <!--头部开始-->
 <div id="header">
 	<div class="logo">
-		<img src="<?php echo URL_THEME; ?>images/logo.png" alt="<?php echo $SITE['site_name']; ?>" title="<?php echo $SITE['site_name']; ?>" />
+		<a href="<?php echo URL_SITE; ?>"><img src="<?php echo URL_THEME; ?>images/logo.png" alt="<?php echo $SITE['site_name']; ?>" title="<?php echo $SITE['site_name']; ?>" /></a>
 	</div>
 	<ul class="nav">
 	<?php

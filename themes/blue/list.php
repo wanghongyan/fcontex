@@ -38,8 +38,8 @@ $(function()
 							分类
 							<span>
 								互联网
-							</span> |
-							评论：
+							</span>
+							&nbsp; | &nbsp; 评论：
 							<span>
 								<a href="<?php echo $R->getUrl('content/read-'.$item['ct_id']); ?>#comment_box"><?php echo $item['ct_talks']; ?></a>
 							</span>
@@ -47,7 +47,7 @@ $(function()
 							$tags = explode(',', $item['ct_tags']);
 							if ($tags[0]):
 							?>
-							| Tags:
+							&nbsp; | &nbsp; 标签:
 							<span>
 							<?php foreach ($tags as $tag): ?>
 								<a href="<?php echo $R->getUrl('content/tag/'.urlencode($tag), ''); ?>"><?php echo $tag; ?></a>&nbsp;

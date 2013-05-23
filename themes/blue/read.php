@@ -23,6 +23,7 @@ var comment =
 				$('#cm_topid').val($(this).attr('topid'));
 				$('#cm_toid').val($(this).attr('toid'));
 				$('#cm_toname').val($(this).attr('toname'));
+				$('#comment-form-avatar').hide();
 				$('#cancel').css('display', 'inline').bind('click', function()
 				{
 					$('#comment_info').removeClass().html('');
@@ -31,6 +32,7 @@ var comment =
 					$('#cm_topid').val('0');
 					$('#cm_toid').val('0');
 					$(this).css('display', 'none');
+					$('#comment-form-avatar').show();
 				});
 			});
 		});
@@ -143,7 +145,7 @@ $(function()
 							$tags = explode(',', $page['ct_tags']);
 							if ($tags[0]):
 							?>
-							| Tags:
+							| 标签:
 							<span>
 							<?php foreach ($tags as $tag): ?>
 								<a href="<?php echo $R->getUrl('content/tag/'.urlencode($tag), ''); ?>"><?php echo $tag; ?></a>&nbsp;

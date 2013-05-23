@@ -1,3 +1,4 @@
+<?php if (sizeof($comments) > 0): ?>
 <dl class="comment">
 	<dt>查看评论</dt>
 	<?php foreach ($comments as $rst):?>
@@ -44,11 +45,13 @@
 	<?php endforeach; ?>
 </dl>
 <?php echo $turnner; ?>
+<?php endif; ?>
 <h3>发表评论</h3>
 <div id="comment_form_box">
 <?php if ($quiet): ?>
 	当前页面已关闭评论。
 <?php else: ?>
+	<div class="comment-form-avatar" id="comment-form-avatar"><img src="http://www.gravatar.com/avatar/<?php echo md5('234'); ?>?s=40&r=X" /></div>
 	<form onSubmit="comment.submit(); return false;" id="form_comment" class="comment-form">
 		<fieldset>
 			<legend>留言信息</legend>
@@ -60,24 +63,24 @@
 			<input type="hidden" name="cm_toname" id="cm_toname" value="" />
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tr>
-					<td width="60">*称呼</td>
-					<td><input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></td>
+					<td width="212"><input type="text" class="text" name="cm_name" id="cm_name" placeholder="称呼" /></td>
+					<td colspan="2">*称呼</td>
 				</tr>
 				<tr>
-					<td>&nbsp;邮箱</td>
 					<td><input type="text" class="text" name="cm_email" id="cm_email" placeholder="邮箱" /></td>
+					<td colspan="2">&nbsp;邮箱</td>
 				</tr>
 				<tr>
-					<td>&nbsp;网站</td>
 					<td><input type="text" class="text" name="cm_url" id="cm_url" placeholder="网站" /></td>
+					<td colspan="2">&nbsp;网站</td>
 				</tr>
 				<tr>
+					<td colspan="2"><textarea class="text" name="cm_content" id="cm_content" placeholder="说点什么吧..."></textarea></td>
 					<td valign="top">*内容</td>
-					<td><textarea class="text" name="cm_content" id="cm_content" placeholder="说点什么吧..."></textarea></td>
 				</tr>
 				<tr>
-					<td></td>
 					<td><button type="submit" value="提交">提交</button> <button type="button" id="cancel">取消</button><label id="comment_info" style="display:none;"></label></td>
+					<td colspan="2"></td>
 				</tr>
 			</table>
 		</fieldset>

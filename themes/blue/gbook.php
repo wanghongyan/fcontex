@@ -66,6 +66,7 @@ $(function()
 		$('#gb_topid').val($(this).attr('topid'));
 		$('#gb_toid').val($(this).attr('toid'));
 		$('#gb_toname').val($(this).attr('toname'));
+		$('#comment-form-avatar').hide();
 		$('#cancel').css('display', 'inline').bind('click', function()
 		{
 			$('#comment_info').removeClass().html('');
@@ -74,6 +75,7 @@ $(function()
 			$('#gb_topid').val('0');
 			$('#gb_toid').val('0');
 			$(this).css('display', 'none');
+			$('#comment-form-avatar').show();
 		});
 	});
 });
@@ -84,13 +86,16 @@ $(function()
 	<?php include 'inc.header.php'; ?>
 		<div id="content">
 			<section id="content-main">
+				<div class="title">
+					<h2>交流</h2>
+				</div>
 				<!--发表评论表单开始-->
 				<div id="comment_form_box">
 				<?php if ($quiet): ?>
 					当前页面已关闭评论。
 				<?php else: ?>
-					<div class="comment-form-avatar"><img src="http://www.gravatar.com/avatar/<?php echo md5('234'); ?>?s=40&r=X" /></div>
-					<form onSubmit="comment.submit(); return false;" id="form_comment" class="comment-form">
+					<div class="comment-form-avatar" id="comment-form-avatar"><img src="http://www.gravatar.com/avatar/<?php echo md5('234'); ?>?s=40&r=X" /></div>
+					<form onsubmit="gbook(); return false;" id="form_comment" class="comment-form">
 						<fieldset>
 							<legend>留言信息</legend>	
 							<input type="hidden" name="cm_control" id="cm_control" value="<?php echo $R->controller; ?>" />
@@ -128,7 +133,7 @@ $(function()
 				<!--发表评论表单结束-->
 				<!--评论列表开始-->
 				<dl class="comment" id="comment-list">
-					<dt>&nbsp;</dt>
+					<dt>评论列表</dt>
 					<?php foreach ($gbook as $rst):?>
 					<dd>
 						<div class="comment-avatar">

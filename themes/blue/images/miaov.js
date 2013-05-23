@@ -1,4 +1,49 @@
-var radius = 120;
+var tagCloud = {
+	radius: 120,
+	angleToRadian: Math.PI/180,
+	tagList: [],
+	wrapperDiv: {},
+	active: false,
+	mouseX: 0,
+	mouseY: 0,
+	/*
+	 * o:{wrapperDiv:'elment id'}
+	 */
+	init: function(o) {
+		tagCloud.wrapperDiv = document.getElementById(o.wrapperDiv);
+		//获取标签的宽、高存标签对象列表taglist
+		var tagA = tagCloud.wrapperDiv.getElementsByTagName('a');
+		var tagALength = tags.length;
+		
+		for(var i = 0; i < tagALength; i++) {
+			var tag = {};
+			
+			tag.offsetWidth = tagA[i].offsetWidth;
+			tag.offsetHeight = tagA[i].offsetHeight;
+			
+			tagCloud.tagList.push(tag);
+		}
+		
+		tagCloud.wrapperDiv.onmouseover = function() {
+			tagCloud.active = true;
+		};
+		
+		tagCloud.wrapperDiv.onmouseout = function() {
+			tagCloud.active = false;
+		};
+		
+		tagCloud.wrapperDiv.onmousemove = function(ev) {
+			//计算鼠标位置
+			var Event = window.event || ev;
+			tagCloud.mouseX = Event.clientX - (tagCloud.wrapperDiv.offsetLeft + tagCloud.wrapperDiv.offsetWidth/2);
+			tagCloud.mouseY = Event.clientY + document.documentElement.scrollTop - (tagCloud.wrapperDiv.offsetTop + tagCloud.wrapperDiv.offsetHeight/2);
+			
+			mouseX/=5;
+			mouseY/=5;
+		};
+	},
+};
+var radius = 120;//圆角的度数
 var dtr = Math.PI/180;
 var d=300;
 
@@ -41,6 +86,8 @@ window.onload=function ()
 	
 	positionAll();
 	
+	oDiv.style.display = 'block';
+	
 	oDiv.onmouseover=function ()
 	{
 		active=true;
@@ -56,7 +103,7 @@ window.onload=function ()
 		var oEvent=window.event || ev;
 		
 		mouseX=oEvent.clientX-(oDiv.offsetLeft+oDiv.offsetWidth/2);
-		mouseY=oEvent.clientY-(oDiv.offsetTop+oDiv.offsetHeight/2);
+		mouseY=oEvent.clientY + document.documentElement.scrollTop - (oDiv.offsetTop+oDiv.offsetHeight/2);
 		
 		mouseX/=5;
 		mouseY/=5;
@@ -214,6 +261,7 @@ function doPosition()
 {
 	var l=oDiv.offsetWidth/2;
 	var t=oDiv.offsetHeight/2;
+	//console.log(l + ' ' + t);
 	for(var i=0;i<mcList.length;i++)
 	{
 		aA[i].style.left=mcList[i].cx+l-mcList[i].offsetWidth/2+'px';
